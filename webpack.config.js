@@ -7,9 +7,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: "/"
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -17,16 +18,16 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader'
-          }
-        ]
+            loader: 'html-loader',
+          },
+        ],
       },
       {
         test: /\.css$/,
@@ -37,8 +38,8 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ],
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -46,14 +47,15 @@ module.exports = {
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css'
-    })
+      filename: 'assets/[name].css',
+    }),
   ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
+    historyApiFallback: true,
     port: 3005,
-  }
-}
+  },
+};
