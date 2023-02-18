@@ -15,30 +15,36 @@ export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (<Home />),
-      // errorElement: (<NotFound />)
+      element: (<Layout />),
+      errorElement: (<NotFound />),
+      children: [
+        {
+          path: "/",
+          element: (<Home />),
+        },
+        {
+          path: "checkout",
+          element: (<Checkout />)
+        },
+        {
+          path: "checkout/payment",
+          element: (<Payment />)
+        },
+        {
+          path: "checkout/success",
+          element: (<Success />)
+        },
+        {
+          path: "checkout/information",
+          element: (<Information />)
+        }
+      ]
     },
-    {
-      path: "checkout",
-      element: (<Checkout />)
-    },
-    {
-      path: "checkout/payment",
-      element: (<Payment />)
-    },
-    {
-      path: "checkout/success",
-      element: (<Success />)
-    },
-    {
-      path: "checkout/information",
-      element: (<Information />)
-    }
+
   ]);
 
+
   return (
-    <Layout>
-      <RouterProvider router={router} />
-    </Layout>
+    <RouterProvider router={router} />
   )
 }
