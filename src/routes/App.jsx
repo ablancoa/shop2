@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from '../containers/Home';
 import Checkout from '../containers/Checkout';
+import Payment from '../containers/Payment';
 import Information from '../containers/Information';
 import Success from '../containers/Success';
 import NotFound from '../containers/NotFound';
@@ -20,6 +21,10 @@ export default function App() {
     {
       path: "checkout",
       element: (<Checkout />)
+    },
+    {
+      path: "checkout/payment",
+      element: (<Payment />)
     },
     {
       path: "checkout/success",
