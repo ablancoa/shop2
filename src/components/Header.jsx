@@ -1,12 +1,25 @@
-import React from 'react';
-import '../styles/components/Header.css'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import AppContext from '../context/AppContext';
+import '../styles/components/Header.css';
 
 export default function Header() {
+  const { state } = useContext(AppContext);
+
+  const { cart } = state;
+
   return (
     <div className='Header'>
-      <h1 className='Header-title'>PlatziConf Merch</h1>
+      <h1 className='Header-title'>
+        <Link to={`/`}>
+          PlatziConf Merch
+        </Link>
+      </h1>
       <div className='Header-checkout'>
-        Checkout
+        <Link to={`/checkout`}>
+          <i className="fa-solid fa-basket-shopping"></i>
+        </Link>
+        {cart.length > 0 && <div className='Header-alert'>{cart.length}</div>}
       </div>
     </div>
   )

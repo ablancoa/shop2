@@ -10,8 +10,13 @@ import Information from '../containers/Information';
 import Success from '../containers/Success';
 import NotFound from '../containers/NotFound';
 import Layout from '../components/Layout';
+import AppContext from '../context/AppContext'
+import useInitialState from '../hooks/useInitialState';
 
-export default function App() {
+
+
+const App = () => {
+  const initialState = useInitialState()
   const router = createBrowserRouter([
     {
       path: "/",
@@ -45,6 +50,10 @@ export default function App() {
 
 
   return (
-    <RouterProvider router={router} />
+    <AppContext.Provider value={initialState}>
+      <RouterProvider router={router} />
+    </AppContext.Provider>
   )
 }
+
+export default App;
