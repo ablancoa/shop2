@@ -1,27 +1,13 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import initialState from "../initialState";
+import { shoppingReducer } from "./useReduceCartProducts";
 
 const useInitialState = () => {
-  const [state, setState] = useState(initialState);
-
-  const addToCart = (payload) => {
-    setState({
-      ...state,
-      cart: [...state.cart, payload]
-    })
-  }
-
-  const removeFromCart = (payload) => {
-    setState({
-      ...state,
-      cart: state.cart.filter(item => item.id !== payload.id)
-    })
-  }
+  const [state, dispatch] = useReducer(shoppingReducer, initialState);
 
   return {
     state,
-    addToCart,
-    removeFromCart,
+    dispatch,
   }
 }
 

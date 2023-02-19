@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import Product from './Product';
-import AppContext from '../context/AppContext'
+import AppContext from '../context/AppContext';
+import { TYPES } from '../actions/shopping';
 import '../styles/components/Products.css'
 
 export default function Products() {
-  const { state, addToCart } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { products } = state;
 
   const hanadleAddToCart = (product) => {
-    addToCart(product)
+    dispatch({ type: TYPES.ADD_TO_CART, payload: [product, 1] })
   }
 
   return (

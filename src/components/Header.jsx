@@ -7,6 +7,8 @@ export default function Header() {
   const { state } = useContext(AppContext);
 
   const { cart } = state;
+  let total = 0;
+  state.cart.map((item) => total = item.quantity + total)
 
   return (
     <div className='Header'>
@@ -19,7 +21,7 @@ export default function Header() {
         <Link to={`/checkout`}>
           <i className="fa-solid fa-basket-shopping"></i>
         </Link>
-        {cart.length > 0 && <div className='Header-alert'>{cart.length}</div>}
+        <div className='Header-alert'>{total}</div>
       </div>
     </div>
   )
