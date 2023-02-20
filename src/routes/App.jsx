@@ -42,7 +42,7 @@ const App = () => {
         {
           path: "checkout/information",
           element: (<Information />)
-        }
+        },
       ]
     },
 

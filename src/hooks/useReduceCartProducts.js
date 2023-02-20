@@ -50,6 +50,12 @@ export function shoppingReducer(state, action) {
     case TYPES.CLEAR_CART:
       return initialState;
     
+    case TYPES.ADD_TO_BUYER:
+      return {
+        ...state,
+        buyer: [action.payload]
+      }
+      
     default:
       return state;
   }

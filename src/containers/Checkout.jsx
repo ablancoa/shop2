@@ -48,6 +48,7 @@ export default function Checkout() {
           </Link>
         </div>
       )}
+
     </div>
   )
 }
