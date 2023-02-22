@@ -42,3 +42,6 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          REACT_APP_PAYPAL_CLIENT_ID: ${{ env.REACT_APP_PAYPAL_CLIENT_ID }}
+          REACT_APP_PAYPAL_APP_SECRET: ${{ env.REACT_APP_PAYPAL_APP_SECRET }}
+          REACT_APP_GOOGLE_MAPS_KEY: ${{ env.REACT_APP_GOOGLE_MAPS_KEY }}
