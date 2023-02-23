@@ -52,11 +52,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
-    new EnvironmentPlugin([
-      'REACT_APP_PAYPAL_CLIENT_ID',
-      'REACT_APP_PAYPAL_APP_SECRET',
-      'REACT_APP_GOOGLE_MAPS_KEY',
-    ])
+    new EnvironmentPlugin({
+      REACT_APP_PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID,
+      REACT_APP_PAYPAL_APP_SECRET: process.env.REACT_APP_PAYPAL_APP_SECRET,
+      REACT_APP_GOOGLE_MAPS_KEy: process.env.REACT_APP_GOOGLE_MAPS_KEy,
+    })
   ],
   devServer: {
     static: {
